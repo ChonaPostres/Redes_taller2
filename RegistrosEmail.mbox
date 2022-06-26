@@ -16,3 +16,48 @@ Ejemplo body
 
 --------------
 
+From MAILER-DAEMON Sun Jun 26 02:03:26 2022
+From: Autor <ignacio.araya.h@gmail.com>
+To: Para <ejemplo@gmail.com>
+Subject: subject
+aaaaaaaaaaa
+
+
+--------------
+
+From MAILER-DAEMON Sun Jun 26 02:08:03 2022
+From: Autor <nicolas.leiva@gmail.com>
+To: Para <melanie.orellana.c@gmail.com>
+Subject: Ejemplo de subject
+Ejemplo de body
+
+
+--------------
+
+From MAILER-DAEMON Sun Jun 26 02:10:24 2022
+From: Autor <melanie.orellana.c@gmail.com>
+To: Para <ignacio.araya.h@gmail.com>
+Subject: aaaaaaaaaaaa
+bbbbbbbbbbbbbb
+
+
+--------------
+
+From MAILER-DAEMON Sun Jun 26 02:12:47 2022
+From: Autor <melanie.orellana.c@gmail.com>
+To: Para <ejemplo@gmail.com>
+Subject: subject
+body
+
+
+--------------
+
+From MAILER-DAEMON Sun Jun 26 02:14:34 2022
+From: Autor <ignacio.araya.h@gmail.com>
+To: Para <nicolas.leiva@gmail.com>
+Subject: holaaaaaa
+aaaaaaaaaaaaaaa
+
+
+--------------
+
