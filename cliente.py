@@ -21,47 +21,22 @@ temp_receiver = StringVar()
 temp_subject  = StringVar()
 temp_body     = StringVar()
 
-class Buzon :
-    def __init__(self) :
-        self.username = ""
-        self.to = ""
-        self.subject = ""
-        self.body = ""
-        self.time = datetime.now()
-    def add(self, username, to, subject, body):
-        self.username = username
-        self.to = to
-        self.subject = subject
-        self.body = body
-        self.time = datetime.now()
-
 
 #Functions
-#def addBuzon(username, to, subject, body) :
- #   print("emailAdd()")
-  #  buzon[cont].append(Buzon().add(0, username, to, subject, body))
-   # cont+= 1
-    #buzonEmail()
+#def addBuzon() :
+#    print("emailAdd()")
+#    searchCorreos()
+    
 def verEmail(email_from, email_to, email_subject) :
     print("verEmail()")
     print(email_from)
     print(email_to)
     print(email_subject)
 
-
-def buzonEmail() :
-    print("buzonEmail()")
-    if (validar_email()) :
-        # Table
-        master.withdraw()
-        ventana_buzonDeCorreos = Toplevel()
-        ventana_buzonDeCorreos.title("Buzón de Correo")
-        ventana_buzonDeCorreos.geometry("300x200")
-        Label(ventana_buzonDeCorreos, text="Buzón", font=('Calibri',11)).grid(row=0, sticky=N)
-        Button(ventana_buzonDeCorreos, text='Redactar email', command=sendEmail).grid(row=1, column=2,sticky=W+E)
-        # Botones de correos 
-        try:
+def searchCorreos():
+    try:
             # Pedir correos adjuntos al usuario
+            
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 s.connect((HOST, PORT))
                 operacion = "2"
@@ -90,9 +65,24 @@ def buzonEmail() :
                     Button(ventana_buzonDeCorreos, text=f"{email[i][2]}", command=lambda:verEmail(email[i][0], email[i][1], email[i][2])).grid(row=row, column=2, sticky=W+E)
                     row+=1
             
-        except Exception as e:
-            print(e)
+    except Exception as e:
+        print(e)
 
+
+def buzonEmail() :
+    print("buzonEmail()")
+    if (validar_email()) :
+        # Table
+        master.withdraw()
+        global ventana_buzonDeCorreos
+        ventana_buzonDeCorreos = Toplevel()
+        ventana_buzonDeCorreos.title("Buzón de Correo")
+        ventana_buzonDeCorreos.geometry("300x200")
+        Label(ventana_buzonDeCorreos, text="Buzón", font=('Calibri',11)).grid(row=0, sticky=N)
+        Button(ventana_buzonDeCorreos, text='Redactar email', command=sendEmail).grid(row=1, column=2,sticky=W+E)
+        # Botones de correos 
+        searchCorreos()
+        
     else: 
         print("No se encuentra registrado")
     
@@ -141,7 +131,7 @@ def send():
                 s.send(bytes(finalMessage+";", "utf-8"))
                 
                 data = s.recv(1024)
-                #addBuzon(username, to, subject, body)
+                #addBuzon()
             print("Recibido", repr(data))
     except Exception as e:
         print(e)
